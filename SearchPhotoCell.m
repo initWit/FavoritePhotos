@@ -19,13 +19,16 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void) setSelected:(BOOL)selected
 {
-    // Drawing code
+    if (selected == YES)
+    {
+        self.heartSelectionImageView.alpha = 1.0;
+    }
+    else
+    {
+        self.heartSelectionImageView.alpha = 0.0;
+    }
 }
-*/
 
 @end

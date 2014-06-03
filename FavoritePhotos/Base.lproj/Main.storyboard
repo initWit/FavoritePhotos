@@ -107,8 +107,8 @@
                                                     <rect key="frame" x="-10" y="61" width="319" height="509"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1lZ-TC-kqR">
-                                                    <rect key="frame" x="198" y="72" width="89" height="89"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2UN-Gi-Pn3">
+                                                    <rect key="frame" x="196" y="66" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -116,7 +116,8 @@
                                         </view>
                                         <size key="customSize" width="299" height="509"/>
                                         <connections>
-                                            <outlet property="photoCellImageView" destination="njQ-pa-eiD" id="Qsn-hg-zIX"/>
+                                            <outlet property="heartSelectionImageView" destination="2UN-Gi-Pn3" id="8AR-V7-Cml"/>
+                                            <outlet property="photoCellImageView" destination="njQ-pa-eiD" id="qjI-pn-JxI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -171,6 +172,9 @@
             <point key="canvasLocation" x="195" y="99"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heartIcon" width="80" height="80"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

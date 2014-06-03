@@ -50,6 +50,7 @@
     {
         self.arrayOfImageDataObjects = [NSMutableArray array];
     }
+    [self.favoritesCollectionView reloadData];
 }
 
 - (NSURL *)documentsDirectory

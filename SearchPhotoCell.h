@@ -10,5 +10,6 @@
 
 @interface SearchPhotoCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *photoCellImageView;
-
+@property (strong, nonatomic) IBOutlet UIImageView *heartSelectionImageView;
+- (void) setSelected:(BOOL)selected;
 @end

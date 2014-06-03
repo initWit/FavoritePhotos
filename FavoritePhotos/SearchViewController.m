@@ -10,6 +10,7 @@
 #import "SearchPhotoCell.h"
 #import "PhotoDataManager.h"
 #import "Photo.h"
+#import "FavoritesUICollectionViewCell.h"
 
 @interface SearchViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, PhotoDataManagerDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *searchCollectionView;
@@ -18,7 +19,6 @@
 @property PhotoDataManager *photoDataManager;
 @property NSMutableArray *searchResultsPhotoDataArray;
 @property NSMutableArray *selectedPhotoDataArray;
-
 
 @end
 
@@ -77,8 +77,12 @@
     Photo *selectedPhotoObject = [self.searchResultsPhotoDataArray objectAtIndex:indexPath.row];
     NSData *dataOfSelectedObject = selectedPhotoObject.photoImageData;
     [self.selectedPhotoDataArray addObject:dataOfSelectedObject];
+    SearchPhotoCell *selectedCell = (SearchPhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [selectedCell setSelected:YES];
     [self save];
+
 }
+
 
 
 - (void)save
