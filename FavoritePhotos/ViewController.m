@@ -26,6 +26,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self load];
 }
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -46,6 +47,7 @@
 {
     NSURL *plist = [[self documentsDirectory]URLByAppendingPathComponent:@"photoData.plist"];
     self.arrayOfImageDataObjects = [NSMutableArray arrayWithContentsOfURL:plist];
+    NSLog(@"Load arrayOfImageDataObjects.count: %i", self.arrayOfImageDataObjects.count);
     if (!self.arrayOfImageDataObjects)
     {
         self.arrayOfImageDataObjects = [NSMutableArray array];

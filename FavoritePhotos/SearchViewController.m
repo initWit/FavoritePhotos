@@ -29,9 +29,16 @@
     [super viewDidLoad];
     self.photoDataManager = [[PhotoDataManager alloc] init];
     self.photoDataManager.delegate = self;
-    self.selectedPhotoDataArray = [NSMutableArray array];
+    self.selectedPhotoDataArray = [[NSMutableArray array]init];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSURL *plist = [[self documentsDirectory]URLByAppendingPathComponent:@"photoData.plist"];
+    self.selectedPhotoDataArray = [NSMutableArray arrayWithContentsOfURL:plist];
+
+}
 
 - (void)photoDataManagerDidFinishGettingPhotos:(NSArray *)array
 {
@@ -74,9 +81,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    NSLog(@"didSelect selectedPhotoDataArray.count: %i", self.selectedPhotoDataArray.count);
     Photo *selectedPhotoObject = [self.searchResultsPhotoDataArray objectAtIndex:indexPath.row];
     NSData *dataOfSelectedObject = selectedPhotoObject.photoImageData;
     [self.selectedPhotoDataArray addObject:dataOfSelectedObject];
+    NSLog(@"didSelect selectedPhotoDataArray.count: %i", self.selectedPhotoDataArray.count);
     SearchPhotoCell *selectedCell = (SearchPhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:YES];
     [self save];
@@ -89,6 +98,7 @@
 {
     NSURL *plist = [[self documentsDirectory]URLByAppendingPathComponent:@"photoData.plist"];
     [self.selectedPhotoDataArray writeToURL:plist atomically:YES];
+
 }
 
 
